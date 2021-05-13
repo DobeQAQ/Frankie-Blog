@@ -10,6 +10,7 @@ import com.ljh.mapper.BlogAndTagsMapper;
 import com.ljh.mapper.BlogMapper;
 import com.ljh.entity.Blog;
 import com.ljh.entity.Type;
+import com.ljh.mapper.TagMapper;
 import com.ljh.service.BlogService;
 
 import com.ljh.util.MarkdownUtils;
@@ -35,11 +36,21 @@ public class BlogServiceImpl implements BlogService {
     private BlogMapper blogMapper;
     @Autowired
     private BlogAndTagsMapper blogAndTagsMapper;
+    @Autowired
+    private TagMapper tagMapper;
 
     private List<Long> tagsId;
 
-
-
+    private List<Tag> convertToTagList(String ids){
+        tagsId= TagsUtils.convertToList(ids);
+        List<Tag> tagList=new ArrayList<>();
+        Tag tag;
+        for(Long tagId : tagsId){
+            tag=tagMapper.selectById(tagId);
+            tagList.add(tag);
+        }
+        return tagList;
+    }
 
     @Override
     public Blog getBlog(Long id) {
@@ -53,6 +64,8 @@ public class BlogServiceImpl implements BlogService {
         //查找
         BlogVO blogVO = blogMapper.getBlogVO(id);
         blogVO.setContent(MarkdownUtils.markdownToHtmlExtensions(blogVO.getContent()));
+
+        blogVO.setTags(convertToTagList(blogVO.getTagIds()));
         return blogVO;
     }
 
@@ -63,7 +76,14 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public IPage<BlogVO> listPublishedBlog(Page<BlogVO> page) {
-        return blogMapper.listPublishedBlog(page);
+        IPage<BlogVO> iPage=blogMapper.listPublishedBlog(page);
+        List<BlogVO> blogVOList=iPage.getRecords();
+        for (BlogVO blogVO : blogVOList){
+            blogVO.setTags(convertToTagList(blogVO.getTagIds()));
+        }
+        iPage.setRecords(blogVOList);
+
+        return iPage;
     }
 
     @Override
@@ -116,17 +136,35 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public IPage<BlogVO> listSearchBlog(Page<BlogVO> page, String query) {
-        return blogMapper.listSearchBlog(page, query);
+        IPage<BlogVO> iPage=blogMapper.listSearchBlog(page, query);
+        List<BlogVO> blogVOList=iPage.getRecords();
+        for (BlogVO blogVO : blogVOList){
+            blogVO.setTags(convertToTagList(blogVO.getTagIds()));
+        }
+        iPage.setRecords(blogVOList);
+        return iPage;
     }
 
     @Override
     public IPage<BlogVO> listBlogByType(Page<BlogVO> page, Long id) {
-        return blogMapper.listBlogByType(page, id);
+        IPage<BlogVO> iPage=blogMapper.listBlogByType(page, id);
+        List<BlogVO> blogVOList=iPage.getRecords();
+        for (BlogVO blogVO : blogVOList){
+            blogVO.setTags(convertToTagList(blogVO.getTagIds()));
+        }
+        iPage.setRecords(blogVOList);
+        return iPage;
     }
 
     @Override
     public IPage<BlogVO> listBlogByTag(Page<BlogVO> page, Long id) {
-        return blogMapper.listBlogByTag(page,id);
+        IPage<BlogVO> iPage= blogMapper.listBlogByTag(page,id);
+        List<BlogVO> blogVOList=iPage.getRecords();
+        for (BlogVO blogVO : blogVOList){
+            blogVO.setTags(convertToTagList(blogVO.getTagIds()));
+        }
+        iPage.setRecords(blogVOList);
+        return iPage;
     }
 
     @Override

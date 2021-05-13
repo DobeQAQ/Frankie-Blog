@@ -210,11 +210,11 @@
         </div>
         <div class="right_content">
             <div class="time_line">
-                <div class="big_dot"> <i class="calendar icon"></i></div>
+                <div class="big_dot"></div>
                 <h3 >目前总计 <strong style="font-size: 18px" th:text="${blogCount}">8 </strong>篇博客，继续努力</h3>
                 <th:block th:each="item : ${archiveMap}">
                     <ul class="year animated fadeIn  m-text" >
-                        <h3 style="font-weight: 400" th:text="${item.key}">2020</h3>
+                        <h3 style="font-weight: 600" th:text="|${item.key}年|">2020</h3>
                         <li class="blog m-teal" th:each="blog : ${item.value}">
 <!--                            <span class="dot"></span>-->
                             <span class="left_pointing"></span>

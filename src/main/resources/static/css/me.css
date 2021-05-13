@@ -17,9 +17,16 @@ body {
 .m-padded-tiny {
     padding: 0.3em !important;
 }
+.m-padded-middle {
+    padding: 0.5em !important;
+}
+.m-padded-big {
+    padding: 0.7em !important;
+}
 .m-padded {
     padding: 1em !important;
 }
+
 .m-padded-tb-mini {
     padding-top: 0.2em !important;
     padding-bottom: 0.2em !important;
@@ -120,6 +127,10 @@ body {
 
 
 /*-----container*/
+.m-container-large{
+    max-width: 110em !important;
+    margin: auto !important;
+}
 
 .m-container-big{
     max-width: 90em !important;
@@ -167,7 +178,9 @@ body {
 .orange{
     color: orange !important;
 }
-
+.m-blue{
+    color: #506B90 !important;
+}
 
 .m-mobile-show {
     display: none !important;

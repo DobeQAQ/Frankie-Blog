@@ -22,6 +22,7 @@
             <result property="userId" column="user_id"/>
             <result property="description" column="description"/>
             <result property="tagIds" column="tag_ids"/>
+
             <association property="type" javaType="com.ljh.entity.Type">
                 <id property="id" column="typeid"/>
                 <result property="name" column="typename"/>
@@ -51,12 +52,13 @@
             t.name typename
             from t_blog b ,t_type t
             where b.type_id = t.id
+            order by b.update_time DESC
         </select>
 
     <!--        管理员端，博客根据模糊标题和分类进行查询-->
         <select id="listBlogSearch" parameterType="com.ljh.vo.BlogQuery" resultMap="blogvo">
             <bind name="pattern" value="'%' + blogQuery.title + '%'" />
-            select b.id id,
+            select  b.id id,
                     b.title title,
                     b.update_time update_time,
                     b.recommend recommend,
@@ -65,6 +67,7 @@
                     t.id typeid,
                     t.name typename
             from t_blog b ,t_type t
+            order by b.update_time DESC
             <where>
                 <if test="1 == 1">
                     b.type_id = t.id    /*博客类型id=类型id*/
@@ -88,8 +91,9 @@
             b.recommend recommend,
             b.published published,
             b.type_id type_id,
-            b.user_id userId,
+            b.user_id user_id,
             b.description description,
+            b.tag_ids tag_ids,
             t.id typeid,
             t.name typename,
             u.id uid,
@@ -112,8 +116,9 @@
                    b.recommend recommend,
                    b.published published,
                    b.type_id type_id,
-                   b.user_id userId,
+                   b.user_id user_id,
                    b.description description,
+                   b.tag_ids tag_ids,
                    t.id typeid,
                    t.name typename,
                    u.id uid,
@@ -138,8 +143,9 @@
                    b.recommend recommend,
                    b.published published,
                    b.type_id type_id,
-                   b.user_id userId,
+                   b.user_id user_id,
                    b.description description,
+                   b.tag_ids tag_ids,
                    t.id typeid,
                    t.name typename,
                    u.id uid,
@@ -163,9 +169,9 @@
                    b.recommend recommend,
                    b.published published,
                    b.type_id type_id,
-                   b.user_id userId,
+                   b.user_id user_id,
                    b.description description,
-                   b.tag_ids tagIds,
+                   b.tag_ids tag_ids,
                    bt.tag_id tagid,
                    t.id typeid,
                    t.name typename,
@@ -183,7 +189,9 @@
 
     <!--获取博客详情页面信息-->
         <select id="getBlogVO" resultMap="blogvo">
-            select b.id id,
+            select b.tag_ids tag_ids,
+                   b.description description,
+                   b.id id,
                    b.title title,
                    b.content content,
                    b.first_picture first_picture,
@@ -196,8 +204,7 @@
                    b.recommend recommend,
                    b.published published,
                    b.type_id type_id,
-                   b.user_id userId,
-                   b.tag_ids tagIds,
+                   b.user_id user_id,
                    t.id typeid,
                    t.name typename,
                    u.id uid,

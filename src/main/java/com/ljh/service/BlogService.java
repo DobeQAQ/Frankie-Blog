@@ -1,5 +1,4 @@
 package com.ljh.service;
-
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ljh.entity.Blog;
@@ -11,10 +10,12 @@ import com.ljh.vo.BlogVO;
 import java.util.List;
 import java.util.Map;
 
+
 public interface BlogService {
 
     //根据id查询一篇博客
     Blog getBlog(Long id);
+
     //根据blog的id查出博客详情
     BlogVO getBlogVO(Long id);
 

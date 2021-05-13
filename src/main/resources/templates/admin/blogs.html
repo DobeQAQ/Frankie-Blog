@@ -46,7 +46,7 @@
     </div>
 
     <!--中间内容-->
-    <div class="m-container m-padded-tb-big">
+    <div class="m-container-large m-padded-tb-big">
         <div class="ui container">
             <input type="hidden" name="page">
             <div class="ui secondary segment form">
@@ -94,7 +94,7 @@
                     <tbody>
                     <tr th:each="blog,iterStat : ${page.records}">
                         <td th:text="${iterStat.count}">1</td>
-                        <td th:text="${blog.title}">刻意练习清单</td>
+                        <td th:text="${blog.title}" >刻意练习清单</td>
                         <td th:text="${blog.type.name}">认知升级</td>
                         <td th:text="${blog.recommend} ? '是' : '否'">是</td>
                         <td th:text="${blog.published} ? '发布' : '草稿'">是</td>

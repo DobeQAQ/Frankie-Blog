@@ -27,11 +27,11 @@
     <div class="ui container" >
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui blogName header item">Frankie's Blog</h2>
-            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'" target="_blank"><i class="home icon"></i>首页</a>
-            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'" target="_blank"><i class="idea icon"></i>分类</a>
-            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'" target="_blank"><i class="tags icon"></i>标签</a>
-            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'" target="_blank"><i class="clone icon"></i>归档</a>
-            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'" target="_blank"><i class="info icon"></i>关于我</a>
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'" th:target="${n==1} ? '_blank' "><i class="home icon"></i>首页</a>
+            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'" th:target="${n==1} ? '_blank' "><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'" th:target="${n==1} ? '_blank' "><i class="tags icon"></i>标签</a>
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'" th:target="${n==1} ? '_blank' "><i class="clone icon"></i>归档</a>
+            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'" th:target="${n==1} ? '_blank' "><i class="info icon"></i>关于我</a>
             <div class=" right m-item item m-mobile-hide" >
                 <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
                     <div class="ui search">
@@ -94,8 +94,8 @@
             <div class="four wide column">
                 <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
                 <div class="ui inverted link list">
-                    <a href="#" class="item m-text-thin">Email: 569372795@qq.com</a>
-                    <a href="#" class="item m-text-thin">QQ：569372795</a>
+                    <div class="item m-text-thin">Email: 569372795@qq.com</div>
+                    <div class="item m-text-thin">QQ：569372795</div>
                 </div>
             </div>
             <div class="four wide column">
