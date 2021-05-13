@@ -6,7 +6,13 @@ spring:
     password: 123456
   thymeleaf:
     cache: false
-
+  mybatis:
+    type-aliases-package: com.ljh.entity
+    mapper-locations: classpath:com/ljh/mapper/*.xml
+    configuration:
+      map-underscore-to-camel-case: true
+      # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 logging:
   level:
     root: warn
@@ -14,4 +20,4 @@ logging:
   file:
     name: log/blog-dev.log
 server:
-  port: 8081
+  port: 4996

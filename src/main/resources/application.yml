@@ -2,7 +2,7 @@ spring:
   thymeleaf:
     mode: HTML
   profiles:
-    active: dev
+    active: pro
   resources:
     add-mappings: true
 project:
