@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljh.mapper.BlogMapper">
+
+        <resultMap id="blogvo" type="com.ljh.vo.BlogVO">
+            <id property="id" column="id"/>
+            <result property="title" column="title"/>
+            <result property="content" column="content"/>
+            <result property="firstPicture" column="first_picture"/>
+            <result property="flag" column="flag"/>
+            <result property="views" column="views"/>
+            <result property="appreciation" column="appreciation"/>
+            <result property="shareStatement" column="share_statement"/>
+            <result property="commentabled" column="commentabled"/>
+            <result property="published" column="published"/>
+            <result property="recommend" column="recommend"/>
+            <result property="createTime" column="create_time"/>
+            <result property="updateTime" column="update_time"/>
+            <result property="typeId" column="type_id"/>
+            <result property="userId" column="user_id"/>
+            <result property="description" column="description"/>
+            <result property="tagIds" column="tag_ids"/>
+            <association property="type" javaType="com.ljh.entity.Type">
+                <id property="id" column="typeid"/>
+                <result property="name" column="typename"/>
+            </association>
+            <association property="user" javaType="com.ljh.entity.User">
+                <id property="id" column="uid"/>
+                <result property="nickname" column="nickname"/>
+                <result property="username" column="username"/>
+                <result property="email" column="email"/>
+                <result property="avatar" column="avatar"/>
+            </association>
+            <collection property="tags" ofType="com.ljh.entity.Tag">
+                <id property="id" column="tagid"/>
+                <result property="name" column="tagname"/>
+            </collection>
+        </resultMap>
+
+    <!--        管理员端，获取博客列表-->
+        <select id="listBlog" resultMap="blogvo">
+            select b.id id,
+            b.title title,
+            b.update_time update_time,
+            b.recommend recommend,
+            b.published published,
+            b.type_id type_id,
+            t.id typeid,
+            t.name typename
+            from t_blog b ,t_type t
+            where b.type_id = t.id
+        </select>
+
+    <!--        管理员端，博客根据模糊标题和分类进行查询-->
+        <select id="listBlogSearch" parameterType="com.ljh.vo.BlogQuery" resultMap="blogvo">
+            <bind name="pattern" value="'%' + blogQuery.title + '%'" />
+            select b.id id,
+                    b.title title,
+                    b.update_time update_time,
+                    b.recommend recommend,
+                    b.published published,
+                    b.type_id type_id,
+                    t.id typeid,
+                    t.name typename
+            from t_blog b ,t_type t
+            <where>
+                <if test="1 == 1">
+                    b.type_id = t.id    /*博客类型id=类型id*/
+                </if>
+                <if test="blogQuery.typeId != null and blogQuery.typeId !=''">
+                    and b.type_id = #{blogQuery.typeId}       /*根据博客类型查询*/
+                </if>
+                <if test="blogQuery.title != null and blogQuery.title !=''">
+                    and b.title like #{pattern}   /*根据博客title模糊查询*/
+                </if>
+            </where>
+        </select>
+
+<!--    展示端，获取已发布的博客列表-->
+        <select id="listPublishedBlog" resultMap="blogvo">
+            select b.id id,
+            b.title title,
+            b.first_picture first_picture,
+            b.views views,
+            b.update_time update_time,
+            b.recommend recommend,
+            b.published published,
+            b.type_id type_id,
+            b.user_id userId,
+            b.description description,
+            t.id typeid,
+            t.name typename,
+            u.id uid,
+            u.nickname nickname,
+            u.avatar avatar
+            from t_blog b, t_type t, t_user u
+            where b.type_id = t.id
+                and b.user_id = u.id
+                and b.published = 1
+                order by b.update_time desc
+        </select>
+
+        <!--展示端，导航栏关键词搜索，获取博客列表-->
+        <select id="listSearchBlog" resultMap="blogvo">
+            select b.id id,
+                   b.title title,
+                   b.first_picture first_picture,
+                   b.views views,
+                   b.update_time update_time,
+                   b.recommend recommend,
+                   b.published published,
+                   b.type_id type_id,
+                   b.user_id userId,
+                   b.description description,
+                   t.id typeid,
+                   t.name typename,
+                   u.id uid,
+                   u.nickname nickname,
+                   u.avatar avatar
+            from t_blog b, t_type t, t_user u
+            where (b.title like concat ('%',#{query},'%')
+               or b.description like concat ('%',#{query},'%'))
+              and b.type_id = t.id
+              and b.user_id = u.id
+              and b.published = 1
+              order by b.update_time desc
+        </select>
+
+<!--    根据分类获取博客列表-->
+        <select id="listBlogByType" resultMap="blogvo">
+            select b.id id,
+                   b.title title,
+                   b.first_picture first_picture,
+                   b.views views,
+                   b.update_time update_time,
+                   b.recommend recommend,
+                   b.published published,
+                   b.type_id type_id,
+                   b.user_id userId,
+                   b.description description,
+                   t.id typeid,
+                   t.name typename,
+                   u.id uid,
+                   u.nickname nickname,
+                   u.avatar avatar
+            from t_blog b, t_type t, t_user u
+            where b.type_id = t.id
+              and b.user_id = u.id
+              and b.published = 1
+              and t.id = #{id}
+              order by b.update_time desc
+        </select>
+
+    <!--    根据标签获取博客列表-->
+    <select id="listBlogByTag" resultMap="blogvo">
+            select b.id id,
+                   b.title title,
+                   b.first_picture first_picture,
+                   b.views views,
+                   b.update_time update_time,
+                   b.recommend recommend,
+                   b.published published,
+                   b.type_id type_id,
+                   b.user_id userId,
+                   b.description description,
+                   b.tag_ids tagIds,
+                   bt.tag_id tagid,
+                   t.id typeid,
+                   t.name typename,
+                   u.id uid,
+                   u.nickname nickname,
+                   u.avatar avatar
+            from t_blog b, t_user u, t_blog_tags bt, t_type t
+            where b.id = bt.blog_id
+              and b.user_id = u.id
+              and b.published = 1
+              and bt.tag_id = #{id}
+              and t.id=b.type_id
+              order by b.update_time desc
+        </select>
+
+    <!--获取博客详情页面信息-->
+        <select id="getBlogVO" resultMap="blogvo">
+            select b.id id,
+                   b.title title,
+                   b.content content,
+                   b.first_picture first_picture,
+                   b.flag flag,
+                   b.views views,
+                   b.appreciation appreciation,
+                   b.share_statement share_statement,
+                   b.commentabled commentabled,
+                   b.update_time update_time,
+                   b.recommend recommend,
+                   b.published published,
+                   b.type_id type_id,
+                   b.user_id userId,
+                   b.tag_ids tagIds,
+                   t.id typeid,
+                   t.name typename,
+                   u.id uid,
+                   u.nickname nickname,
+                   u.avatar avatar
+            from t_blog b, t_type t, t_user u
+            where b.id = #{id}
+              and b.type_id = t.id
+              and b.user_id = u.id
+        </select>
+
+        <!--增加浏览次数-->
+        <update id="addViews">
+            update t_blog
+            set views = views + 1
+            where id = #{id}
+        </update>
+
+        <!--获取博客涉及年份-->
+         <select id="getGroupYears" resultType="java.lang.String">
+            select date_format(b.update_time, '%Y') as year
+            from t_blog b
+            group by year
+            order by year desc;
+        </select>
+         <!--        获取年份对应的博客-->
+         <select id="getBlogByYear" resultMap="blogvo">
+            select b.id  id,
+                b.title title,
+                b.update_time update_time,
+                b.flag flag,
+                t.id typeid,
+                t.name typename
+            from t_blog b, t_type t
+            where date_format(b.update_time, '%Y') = #{year}
+            and t.id=b.type_id
+            order by b.update_time desc ;
+        </select>
+
+<!--        获取最新博客-->
+        <select id="selectNewBlogs" resultType="com.ljh.entity.Blog">
+            select b.id  id,
+                b.title title
+            from t_blog b
+            where published = 1
+            order by update_time desc
+            limit 3
+        </select>
+</mapper>
+

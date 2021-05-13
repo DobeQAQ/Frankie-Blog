@@ -1,0 +1,16 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+  resources:
+    add-mappings: true
+project:
+  salt: "blog"
+  pageSize: 10
+  avatar: /images/visitor.jpeg
+  adminAvatar: /images/myPhoto.jpeg
+  email: 569372795@qq.com
+  name: FrankieLiu
+  pageTypeSize: 8
+  pageTagSize: 15
