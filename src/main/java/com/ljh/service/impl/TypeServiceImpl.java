@@ -3,17 +3,13 @@ package com.ljh.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.ljh.NotFoundException;
 import com.ljh.mapper.TypeMapper;
 import com.ljh.entity.Type;
 import com.ljh.service.TypeService;
 import com.ljh.vo.TypeVO;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 @Service

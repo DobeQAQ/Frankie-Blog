@@ -84,7 +84,7 @@
                 <div class="ui segments m-margin-top-large ">
                     <div class="ui segment center aligned">
                         <a href="https://github.com/DobeQAQ" target="_blank">
-                            <p >我的Github</p>
+                            <p>我的Github</p>
                         </a>
                     </div>
                     <div class="ui segment center aligned">
@@ -107,7 +107,8 @@
                 <!--二维码-->
                 <h4 class="ui horizontal divider header m-margin-top-large">联系作者</h4>
                 <div class="ui centered card" style="width: 11em">
-                    <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" >
+                    <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt=""
+                         class="ui rounded image">
                 </div>
 
             </div>
@@ -123,7 +124,7 @@
                 </div>
                 <!--                    content-->
                 <div class="ui attached teal segment">
-                    <div class="ui padded vertical segment m-padded-tb-large"  th:each="blog : ${page.records}">
+                    <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${page.records}">
                         <div class="ui middle aligned mobile reversed stackable grid">
                             <div class="sixteenth wide column">
                                 <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank"
@@ -156,17 +157,19 @@
                                 </div>
                                 <div class="row">
                                     <div class="column">
-                                        <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui  basic left pointing m-blue label m-padded-middle"  th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论</a>
+                                        <a href="#" th:href="@{/tags/{id}(id=${tag.id})}"
+                                           class="ui  basic left pointing m-blue label m-padded-middle"
+                                           th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论</a>
                                     </div>
                                 </div>
                             </div>
-<!--如果要加图片-->
-<!--                            <div class="five wide column">-->
-<!--                                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">-->
-<!--                                    <img src="https://unsplash.it/800/450?image=1005" th:src="@{${blog.firstPicture}}"-->
-<!--                                         alt="" class="ui rounded image">-->
-<!--                                </a>-->
-<!--                            </div>-->
+                            <!--如果要加图片-->
+                            <!--                            <div class="five wide column">-->
+                            <!--                                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">-->
+                            <!--                                    <img src="https://unsplash.it/800/450?image=1005" th:src="@{${blog.firstPicture}}"-->
+                            <!--                                         alt="" class="ui rounded image">-->
+                            <!--                                </a>-->
+                            <!--                            </div>-->
 
                         </div>
                     </div>
@@ -199,18 +202,18 @@
                             共<h3 class="ui red header m-inline-block m-text-thin"
                                  th:text="${page.pages}">8</h3>页
                         </a>
-<!--                        输入页号跳转，暂未实现-->
-<!--                        <form name="page" class="right item" action="#" th:action="@{/}"-->
-<!--                              method="get" target="_blank">-->
-<!--                            <div class="ui right labeled input">-->
-<!--                                <div class="ui basic label">Go</div>-->
-<!--                                <input type="text" name="pageNum" placeholder="页码..."-->
-<!--                                       style="width: 80px;">-->
-<!--                                <div class="ui basic label">页</div>-->
-<!--                                <button class="ui icon button"><i onclick="document.forms['page'].submit()"-->
-<!--                                                                  class="right arrow icon"></i></button>-->
-<!--                            </div>-->
-<!--                        </form>-->
+                        <!--                        输入页号跳转，暂未实现-->
+                        <!--                        <form name="page" class="right item" action="#" th:action="@{/}"-->
+                        <!--                              method="get" target="_blank">-->
+                        <!--                            <div class="ui right labeled input">-->
+                        <!--                                <div class="ui basic label">Go</div>-->
+                        <!--                                <input type="text" name="pageNum" placeholder="页码..."-->
+                        <!--                                       style="width: 80px;">-->
+                        <!--                                <div class="ui basic label">页</div>-->
+                        <!--                                <button class="ui icon button"><i onclick="document.forms['page'].submit()"-->
+                        <!--                                                                  class="right arrow icon"></i></button>-->
+                        <!--                            </div>-->
+                        <!--                        </form>-->
                     </div>
                 </div>
 

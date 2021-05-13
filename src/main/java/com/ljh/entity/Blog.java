@@ -9,9 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,7 +16,7 @@ import java.util.List;
 @TableName("t_blog")
 public class Blog implements Serializable {
 
-    @TableId(type= IdType.AUTO)
+    @TableId(type = IdType.AUTO)
     private Long id;
     private String title;//标题
     private String content;//内容

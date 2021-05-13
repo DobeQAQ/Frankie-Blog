@@ -1,7 +1,6 @@
 package com.ljh.controller.admin;
 
 
-
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ljh.entity.Blog;
@@ -27,12 +26,12 @@ public class BlogController {
 
 
     private static final String BLOG_MESSAGE = "message";
-    private static final String SUCCESS_ADD="新增成功";
+    private static final String SUCCESS_ADD = "新增成功";
     private static final String FAILED_ADD = "新增失败";
     private static final String SUCCESS_EDIT = "修改成功";
     private static final String FAILED_EDIT = "修改失败";
     private static final String SUCCESS_DEL = "删除成功";
-    private static final String FAILED_DEL ="删除失败";
+    private static final String FAILED_DEL = "删除失败";
 
 
     @Value("${project.pageSize}")
@@ -49,9 +48,9 @@ public class BlogController {
     //跳转到博客列表页面
     @GetMapping("/blogs")
     public String blogs(@RequestParam(defaultValue = "1", name = "current") Integer current,
-                        Model model){
+                        Model model) {
         IPage<BlogVO> page = blogService.listBlog(new Page<>(current, Long.parseLong(pageSize)));
-        model.addAttribute("page",page);
+        model.addAttribute("page", page);
         model.addAttribute("types", typeService.listType());
         return "admin/blogs";
     }
@@ -59,21 +58,21 @@ public class BlogController {
     //根据查询条件刷新表格
     @PostMapping("/blogs/search")
     public String search(@RequestParam(defaultValue = "1", name = "current") Integer current,
-                         Model model, BlogQuery blogQuery){
+                         Model model, BlogQuery blogQuery) {
         IPage<BlogVO> page = blogService.listBlogSearch(new Page<>(current, Long.parseLong(pageSize)), blogQuery);
-        model.addAttribute("page",page);
+        model.addAttribute("page", page);
         return "admin/blogs :: blogList";
     }
 
     //查询分类和标签
-    private void queryTypeAndTag(Model model){
+    private void queryTypeAndTag(Model model) {
         model.addAttribute("types", typeService.listType());
         model.addAttribute("tags", tagService.listTag());
     }
 
     //跳转到博客发布页面
     @GetMapping("/blogs/input")
-    public String input(Model model){
+    public String input(Model model) {
         queryTypeAndTag(model);
         model.addAttribute("blog", new Blog());
         return "admin/blogs-input";
@@ -87,29 +86,28 @@ public class BlogController {
         model.addAttribute("blog", blogService.getBlog(id));
         return "admin/blogs-input";
     }
+
     //保存分类
     //如果没有id则为新增，id存在则为修改
     @PostMapping("/blogs")
-    public String save(Blog blog, HttpSession session, RedirectAttributes attributes){
+    public String save(Blog blog, HttpSession session, RedirectAttributes attributes) {
         User user = (User) session.getAttribute("user");
         blog.setUserId(user.getId());
-//        blog.setTypeId(typeService.getType(blog.getTypeId()).getId());
-        System.out.println(blog);
         int i;
         //修改
-        if(blog.getId() != null){
+        if (blog.getId() != null) {
             i = blogService.updateBlog(blog);
-            if(i > 0){
+            if (i > 0) {
                 attributes.addFlashAttribute(BLOG_MESSAGE, SUCCESS_EDIT);
             } else {
-                attributes.addFlashAttribute(BLOG_MESSAGE,FAILED_EDIT);
+                attributes.addFlashAttribute(BLOG_MESSAGE, FAILED_EDIT);
             }
         } else {
             i = blogService.saveBlog(blog);
-            if(i > 0){
-                attributes.addFlashAttribute(BLOG_MESSAGE,SUCCESS_ADD);
+            if (i > 0) {
+                attributes.addFlashAttribute(BLOG_MESSAGE, SUCCESS_ADD);
             } else {
-                attributes.addFlashAttribute(BLOG_MESSAGE,FAILED_ADD);
+                attributes.addFlashAttribute(BLOG_MESSAGE, FAILED_ADD);
             }
         }
 
@@ -119,10 +117,10 @@ public class BlogController {
     @GetMapping("/blogs/{id}/delete")
     public String delete(@PathVariable Long id, RedirectAttributes attributes) {
         int i = blogService.deleteBlog(id);
-        if(i < 1){
-            attributes.addFlashAttribute(BLOG_MESSAGE,FAILED_DEL);
+        if (i < 1) {
+            attributes.addFlashAttribute(BLOG_MESSAGE, FAILED_DEL);
         } else {
-            attributes.addFlashAttribute(BLOG_MESSAGE,SUCCESS_DEL);
+            attributes.addFlashAttribute(BLOG_MESSAGE, SUCCESS_DEL);
         }
         return "redirect:/admin/blogs";
     }

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head(title)">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon"  th:href="@{/images/myPhoto.jpeg}" th:src="@{/images/myPhoto.jpeg}" type="image/x-icon">
+    <link rel="shortcut icon" th:href="@{/images/myPhoto.jpeg}" th:src="@{/images/myPhoto.jpeg}" type="image/x-icon">
     <title th:replace="${title}">博客详情</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
-    <link rel="stylesheet" href="../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link rel="stylesheet" href="../static/lib/editormd/css/editormd.min.css"
+          th:href="@{/lib/editormd/css/editormd.min.css}">
     <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
     <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
     <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
@@ -16,23 +17,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 
 
-
-
-
-
 </head>
 <body>
 <!--导航-->
-<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small animated slow fadeInDown navColor" >
-    <div class="ui container" >
+<nav th:fragment="menu(n)"
+     class="ui inverted attached segment m-padded-tb-mini m-shadow-small animated slow fadeInDown navColor">
+    <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui blogName header item">Frankie's Blog</h2>
-            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'" th:target="${n==1} ? '_blank' "><i class="home icon"></i>首页</a>
-            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'" th:target="${n==1} ? '_blank' "><i class="idea icon"></i>分类</a>
-            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'" th:target="${n==1} ? '_blank' "><i class="tags icon"></i>标签</a>
-            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'" th:target="${n==1} ? '_blank' "><i class="clone icon"></i>归档</a>
-            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'" th:target="${n==1} ? '_blank' "><i class="info icon"></i>关于我</a>
-            <div class=" right m-item item m-mobile-hide" >
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"
+               th:target="${n==1} ? '_blank' "><i class="home icon"></i>首页</a>
+            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"
+               th:target="${n==1} ? '_blank' "><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"
+               th:target="${n==1} ? '_blank' "><i class="tags icon"></i>标签</a>
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"
+               th:target="${n==1} ? '_blank' "><i class="clone icon"></i>归档</a>
+            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"
+               th:target="${n==1} ? '_blank' "><i class="info icon"></i>关于我</a>
+            <div class=" right m-item item m-mobile-hide">
                 <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
                     <div class="ui search">
                         <div class="ui icon inverted  input ">
@@ -83,7 +86,8 @@
                 <h4 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h4>
                 <div id="newblog-container">
                     <div class="ui inverted link list" th:fragment="newblogList">
-                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事（User Story）</a>
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin"
+                           th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事（User Story）</a>
                         <!--/*-->
                         <a href="#" class="item m-text-thin">用户故事（User Story）</a>
                         <a href="#" class="item m-text-thin">用户故事（User Story）</a>
@@ -116,7 +120,8 @@
     <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
     <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
     <script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
-    <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+    <script src="../static/lib/waypoints/jquery.waypoints.min.js"
+            th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
     <script src="../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     <!-- require MetingJS -->
@@ -162,19 +167,23 @@
         $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
     </script>
     <script type="text/javascript">
-        (function($){
-            $.fn.snow = function(options){
-                var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px'}).html('&#10052;'),
-                    documentHeight 	= $(document).height(),
-                    documentWidth	= $(document).width(),
+        (function ($) {
+            $.fn.snow = function (options) {
+                var $flake = $('<div id="snowbox" />').css({
+                        'position': 'absolute',
+                        'z-index': '9999',
+                        'top': '-50px'
+                    }).html('&#10052;'),
+                    documentHeight = $(document).height(),
+                    documentWidth = $(document).width(),
                     defaults = {
-                        minSize		: 10,
-                        maxSize		: 20,
-                        newOn		: 500,
-                        flakeColor	: "#A6C6FF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
+                        minSize: 10,
+                        maxSize: 20,
+                        newOn: 500,
+                        flakeColor: "#A6C6FF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
                     },
-                    options	= $.extend({}, defaults, options);
-                var interval= setInterval( function(){
+                    options = $.extend({}, defaults, options);
+                var interval = setInterval(function () {
                     var startPositionLeft = Math.random() * documentWidth - 100,
                         startOpacity = 0.5 + Math.random(),
                         sizeFlake = options.minSize + Math.random() * options.maxSize,
@@ -190,13 +199,13 @@
                         top: endPositionTop,
                         left: endPositionLeft,
                         opacity: 0.2
-                    },durationFall,'linear',function(){
+                    }, durationFall, 'linear', function () {
                         $(this).remove()
                     });
                 }, options.newOn);
             };
         })(jQuery);
-        $(function(){
+        $(function () {
             $.fn.snow({
                 minSize: 5, /* 定义雪花最小尺寸 */
                 maxSize: 50,/* 定义雪花最大尺寸 */

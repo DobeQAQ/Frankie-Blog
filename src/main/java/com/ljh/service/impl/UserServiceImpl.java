@@ -14,17 +14,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    /**
-     * 验证登录
-     * @param username
-     * @param password
-     * @return
-     */
     @Override
     public User checkUser(String username, String password) {
         User user = userMapper.selectOne(new QueryWrapper<User>()
-                .eq("username",username)
-                .eq("password",MD5Utils.code(password)));
+                .eq("username", username)
+                .eq("password", MD5Utils.code(password)));
         return user;
     }
 }

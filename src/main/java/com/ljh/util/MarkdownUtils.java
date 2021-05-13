@@ -11,12 +11,11 @@ import org.commonmark.renderer.html.AttributeProvider;
 import org.commonmark.renderer.html.AttributeProviderContext;
 import org.commonmark.renderer.html.AttributeProviderFactory;
 import org.commonmark.renderer.html.HtmlRenderer;
-
 import java.util.*;
 
 public class MarkdownUtils {
 
-//    markdown格式转换成HTML格式
+    //    markdown格式转换成HTML格式
     public static String markdownToHtml(String markdown) {
         Parser parser = Parser.builder().build();
         Node document = parser.parse(markdown);
@@ -24,7 +23,7 @@ public class MarkdownUtils {
         return renderer.render(document);
     }
 
-//    增加扩展[标题锚点，表格生成]
+    //    增加扩展[标题锚点，表格生成]
     public static String markdownToHtmlExtensions(String markdown) {
         //h标题生成id
         Set<Extension> headingAnchorExtensions = Collections.singleton(HeadingAnchorExtension.create());
@@ -46,7 +45,7 @@ public class MarkdownUtils {
         return renderer.render(document);
     }
 
-//    处理标签的属性
+    //    处理标签的属性
     static class CustomAttributeProvider implements AttributeProvider {
         @Override
         public void setAttributes(Node node, String tagName, Map<String, String> attributes) {
@@ -59,5 +58,4 @@ public class MarkdownUtils {
             }
         }
     }
-
 }

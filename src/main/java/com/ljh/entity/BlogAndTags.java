@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +17,6 @@ public class BlogAndTags implements Serializable {
 
     @TableId(type = IdType.AUTO)
     private Long id;
-
     private Long tagId;
     private Long blogId;
 

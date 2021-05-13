@@ -1,15 +1,12 @@
 package com.ljh.service;
+
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ljh.entity.Blog;
-
 import com.ljh.vo.BlogQuery;
 import com.ljh.vo.BlogVO;
-
-
 import java.util.List;
 import java.util.Map;
-
 
 public interface BlogService {
 
@@ -47,7 +44,7 @@ public interface BlogService {
 
     Integer countSearchBlog(String query);//统计查询总数
 
-    Map<String,List<BlogVO>> archiveBlog();//归档
+    Map<String, List<BlogVO>> archiveBlog();//归档
 
     List<Blog> getNewBlogs();//最新博客
 

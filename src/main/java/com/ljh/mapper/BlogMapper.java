@@ -6,9 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ljh.entity.Blog;
 import com.ljh.vo.BlogQuery;
 import com.ljh.vo.BlogVO;
-
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

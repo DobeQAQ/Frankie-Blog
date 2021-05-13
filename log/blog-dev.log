@@ -2844,3 +2844,7 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as express
 2021-05-13 20:15:56.512  INFO 31664 --- [http-nio-8080-exec-10] com.ljh.aspect.LogAspect                 : Result : index
 2021-05-13 20:15:57.256  INFO 31664 --- [http-nio-8080-exec-4] com.ljh.aspect.LogAspect                 : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.ljh.controller.IndexController.newblog', args=[{}]}
 2021-05-13 20:15:57.257  INFO 31664 --- [http-nio-8080-exec-4] com.ljh.aspect.LogAspect                 : Result : _fragments :: newblogList
+2021-05-13 21:38:09.126  WARN 26172 --- [http-nio-4996-exec-5] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,188] milliseconds.
+2021-05-13 21:43:56.752  WARN 16680 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,217] milliseconds.
+2021-05-13 21:45:35.240  WARN 732 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,171] milliseconds.
+2021-05-13 21:49:52.112  WARN 16376 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,173] milliseconds.

@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon"  th:href="@{/images/myPhoto.jpeg}" th:src="@{/images/myPhoto.jpeg}">
+    <link rel="shortcut icon" th:href="@{/images/myPhoto.jpeg}" th:src="@{/images/myPhoto.jpeg}">
     <title>归档</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
-    <link rel="stylesheet" href="../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link rel="stylesheet" href="../static/lib/editormd/css/editormd.min.css"
+          th:href="@{/lib/editormd/css/editormd.min.css}">
     <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
     <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
     <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
@@ -27,29 +28,36 @@
         .w a {
             color: black;
         }
+
         .w a:hover {
             color: #00a8c6 !important;
         }
+
         .margin-left-small {
             margin-left: 10px;
         }
+
         .left {
             float: left;
         }
+
         .right {
             float: right;
         }
+
         .w .left_content {
             float: left;
             width: 80px;
             margin-top: 50px;
         }
+
         .left_content li {
             color: #616161;
             height: 32px;
             padding-bottom: 2px;
         }
-        .left_content li a{
+
+        .left_content li a {
 
             color: #616161;
             border-bottom: 1px solid #999;
@@ -60,15 +68,17 @@
             width: 100%;
             height: 100%;
             /*background-color: pink;*/
-            border-left:  3px 	rgba(0,0,0,.1) solid;
+            border-left: 3px rgba(0, 0, 0, .1) solid;
         }
-        .time_line>h3 {
 
-            font-weight: 400 ;
+        .time_line > h3 {
+
+            font-weight: 400;
             margin-left: 15px;
             font-size: 16px;
             color: #555
         }
+
         .big_dot {
             width: 30px;
             height: 30px;
@@ -77,29 +87,33 @@
             top: -5px;
 
             border-radius: 50%;
-            background-color:#00B5AD;
+            background-color: #00B5AD;
 
         }
+
         .big_dot i {
             position: relative;
             left: 7px;
             line-height: 30px;
             color: white;
         }
+
         .year h3 {
             margin-left: 30px;
             margin-top: 25px;
 
         }
+
         .blog {
             position: relative;
             width: 800px;
             height: 90px;
             /*background-color: #1abc9c;*/
             margin: 20px 20px 0px 30px;
-            border: 1px rgba(0,0,0,.3);
-            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+            border: 1px rgba(0, 0, 0, .3);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
         }
+
         .blog .dot {
             display: block;
             position: absolute;
@@ -107,9 +121,10 @@
             left: -38px;
             width: 12px;
             height: 12px;
-            background-color:#00B5AD;
+            background-color: #00B5AD;
             border-radius: 50%;
         }
+
         .blog .left_pointing {
             width: 0;
             height: 0;
@@ -119,20 +134,24 @@
             border: 10px solid transparent;
             border-right-color: honeydew;
         }
+
         .blog .blog_title {
             width: 100%;
             height: 40px;
             background-color: white;
-            border-bottom: 1px rgba(0,0,0,.1) solid;
+            border-bottom: 1px rgba(0, 0, 0, .1) solid;
         }
+
         .blog_title h4 {
             line-height: 40px;
             margin-left: 15px;
 
         }
+
         .blog_title a {
             color: green;
         }
+
         .blog .blog_info {
             position: relative;
             width: 100%;
@@ -147,6 +166,7 @@
             font-size: 13px;
             color: teal;
         }
+
         .blog ul li a {
             color: teal;
         }
@@ -156,12 +176,15 @@
             right: 10px;
             top: 10px;
         }
+
         .tags {
-            margin-left: 20px!important;
+            margin-left: 20px !important;
         }
+
         .tags span:hover {
             color: #00a8c6;
         }
+
         .page {
             overflow: hidden;
             width: 100%;
@@ -170,6 +193,7 @@
             background-color: white;
             text-align: center;
         }
+
         .page span {
             line-height: 35px;
             margin: 0 20px;
@@ -178,130 +202,134 @@
 </head>
 
 <body>
-    <!--导航-->
-    <nav th:replace="_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
-        <div class="ui container">
-            <div class="ui inverted secondary stackable menu">
-                <h2 class="ui teal header item">My Blog</h2>
-                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
-                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
-                <a href="#" class="active m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
-                <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
-                <div class="right m-item item m-mobile-hide">
-                    <div class="ui icon inverted transparent input">
-                        <input type="text" placeholder="Search...">
-                        <i class="search link icon"></i>
-                    </div>
+<!--导航-->
+<nav th:replace="_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">My Blog</h2>
+            <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="#" class="active m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+            <div class="right m-item item m-mobile-hide">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
                 </div>
             </div>
         </div>
-        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
-            <i class="sidebar icon"></i>
-        </a>
-    </nav>
-
-    <!--中间内容-->
-
-    <div class="w">
-        <h2>ARCHIVES</h2>
-        <div class="left_content left animated slideInDown">
-
-        </div>
-        <div class="right_content">
-            <div class="time_line">
-                <div class="big_dot"></div>
-                <h3 >目前总计 <strong style="font-size: 18px" th:text="${blogCount}">8 </strong>篇博客，继续努力</h3>
-                <th:block th:each="item : ${archiveMap}">
-                    <ul class="year animated fadeIn  m-text" >
-                        <h3 style="font-weight: 600" th:text="|${item.key}年|">2020</h3>
-                        <li class="blog m-teal" th:each="blog : ${item.value}">
-<!--                            <span class="dot"></span>-->
-                            <span class="left_pointing"></span>
-                            <div class="blog_title">
-                                <a href="#"><h4 style="font-weight: 400"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" th:text="${blog.title}" >人间失格</a></h4></a></div>
-                            <ul class="blog_info">
-                                <li class="date" >  <i class="calendar icon"></i><span th:text="${#temporals.format(blog.updateTime, 'yyyy-MM-dd')}">2020-09-12</span ></li>
-                                <li class="tags ">
-                                    <i class="icon idea"></i>
-                                    <a href="#" th:href="@{/blog/{id}(id=${blog.id})}"><span th:text="${blog.type.name}"></span></a>
-                                    <!--                            <span>暂无标签</span>-->
-                                    <!--                            <a href="#"><span>，心情</span></a>-->
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </th:block>
-            </div>
-        </div>
-        <div style="clear:both"></div>
     </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
 
-    <br>
-    <br>
+<!--中间内容-->
 
-    <!--底部footer-->
-    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
-        <div style="color: indigo">
-            <meting-js
-                    server="netease"
-                    type="playlist"
-                    id="2256615030"
-                    fixed="true"
-                    autoplay="false"
-                    loop="all"
-                    order="random"
-                    preload="auto"
-                    list-folded="ture"
-                    list-max-height="500px"
-                    lrc-type="1">
-            </meting-js>
+<div class="w">
+    <h2>ARCHIVES</h2>
+    <div class="left_content left animated slideInDown">
+
+    </div>
+    <div class="right_content">
+        <div class="time_line">
+            <div class="big_dot"></div>
+            <h3>目前总计 <strong style="font-size: 18px" th:text="${blogCount}">8 </strong>篇博客，继续努力</h3>
+            <th:block th:each="item : ${archiveMap}">
+                <ul class="year animated fadeIn  m-text">
+                    <h3 style="font-weight: 600" th:text="|${item.key}年|">2020</h3>
+                    <li class="blog m-teal" th:each="blog : ${item.value}">
+                        <!--                            <span class="dot"></span>-->
+                        <span class="left_pointing"></span>
+                        <div class="blog_title">
+                            <a href="#"><h4 style="font-weight: 400"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}"
+                                                                        target="_blank" th:text="${blog.title}">人间失格</a>
+                            </h4></a></div>
+                        <ul class="blog_info">
+                            <li class="date"><i class="calendar icon"></i><span
+                                    th:text="${#temporals.format(blog.updateTime, 'yyyy-MM-dd')}">2020-09-12</span></li>
+                            <li class="tags ">
+                                <i class="icon idea"></i>
+                                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}"><span
+                                        th:text="${blog.type.name}"></span></a>
+                                <!--                            <span>暂无标签</span>-->
+                                <!--                            <a href="#"><span>，心情</span></a>-->
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </th:block>
         </div>
-        <div class="ui center aligned container">
-            <div class="ui inverted divided stackable grid">
-                <div class="three wide column">
-                    <div class="ui inverted link list">
-                        <div class="item">
-                            <img src="../static/images/wechat.jpg" class="ui rounded image" alt="" style="width: 110px">
-                        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+<br>
+<br>
+
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div style="color: indigo">
+        <meting-js
+                server="netease"
+                type="playlist"
+                id="2256615030"
+                fixed="true"
+                autoplay="false"
+                loop="all"
+                order="random"
+                preload="auto"
+                list-folded="ture"
+                list-max-height="500px"
+                lrc-type="1">
+        </meting-js>
+    </div>
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg" class="ui rounded image" alt="" style="width: 110px">
                     </div>
-                </div>
-                <div class="three wide column">
-                    <h4 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h4>
-                    <div class="ui inverted link list">
-                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
-                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
-                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
-                    </div>
-                </div>
-                <div class="three wide column">
-                    <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
-                    <div class="ui inverted link list">
-                        <a href="#" class="item m-text-thin">Email：liujiahao_1125@foxmail.com</a>
-                        <a href="#" class="item m-text-thin">QQ：569372795</a>
-                    </div>
-                </div>
-                <div class="seven wide column">
-                    <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
-                    <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
                 </div>
             </div>
-            <div class="ui inverted section divider"></div>
-            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - 2021 Designed by Jiahao Liu</p>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                    <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                    <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">Email：liujiahao_1125@foxmail.com</a>
+                    <a href="#" class="item m-text-thin">QQ：569372795</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+            </div>
         </div>
-    </footer>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - 2021 Designed by Jiahao Liu</p>
+    </div>
+</footer>
 
-    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-    <!--/*/</th:block>/*/-->
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
 
-    <script>
-        $('.menu.toggle').click(function() {
-            $('.m-item').toggleClass('m-mobile-hide');
-        });
-    </script>
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+</script>
 </body>
 
 </html>

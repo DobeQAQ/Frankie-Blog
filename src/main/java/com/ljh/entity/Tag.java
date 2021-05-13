@@ -7,17 +7,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("t_tag")
 public class Tag implements Serializable {
-    @TableId(type= IdType.AUTO)
+
+    @TableId(type = IdType.AUTO)
     private Long id;
     private String name;
 

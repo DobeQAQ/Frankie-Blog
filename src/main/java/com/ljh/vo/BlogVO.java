@@ -1,6 +1,5 @@
 package com.ljh.vo;
 
-
 import com.ljh.entity.Comment;
 import com.ljh.entity.Tag;
 import com.ljh.entity.Type;
@@ -10,7 +9,6 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
 
 @Data
 public class BlogVO {

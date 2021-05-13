@@ -8,11 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -20,7 +18,8 @@ import java.util.List;
 @NoArgsConstructor
 @TableName("t_comment")
 public class Comment implements Serializable {
-    @TableId(type= IdType.AUTO)
+
+    @TableId(type = IdType.AUTO)
     private Long id;
     private String nickname;//昵称
     private String email;//邮箱
@@ -38,7 +37,6 @@ public class Comment implements Serializable {
 
     @TableField(exist = false)
     private Comment parentComment;
-
 
 
     private static final long serialVersionUID = 1L;

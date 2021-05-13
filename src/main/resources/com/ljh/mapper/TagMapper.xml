@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ljh.mapper.TagMapper">
     <resultMap id="tag" type="com.ljh.vo.TagVO">
-        <id property="id" column="id" />
+        <id property="id" column="id"/>
         <result property="name" column="name"/>
-        <collection property="blogs" ofType="com.ljh.entity.Blog" >
-            <id property="id" column="bid" />
+        <collection property="blogs" ofType="com.ljh.entity.Blog">
+            <id property="id" column="bid"/>
         </collection>
     </resultMap>
 

@@ -4,8 +4,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ljh.entity.Type;
 import com.ljh.vo.TypeVO;
-
-
 import java.util.List;
 
 public interface TypeService {

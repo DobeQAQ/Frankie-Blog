@@ -3,14 +3,10 @@ package com.ljh.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ljh.entity.Tag;
-import com.ljh.entity.Type;
 import com.ljh.vo.TagVO;
-
-
 import java.util.List;
 
 public interface TagService {
-
 
     int saveTag(Tag tag);//保存一个标签
 
