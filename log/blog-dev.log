@@ -2849,3 +2849,112 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as express
 2021-05-13 21:45:35.240  WARN 732 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,171] milliseconds.
 2021-05-13 21:49:52.112  WARN 16376 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,173] milliseconds.
 2021-05-13 22:00:18.630  WARN 26084 --- [http-nio-4996-exec-3] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,143] milliseconds.
+2021-05-13 22:12:25.805  WARN 26124 --- [http-nio-4996-exec-2] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,541] milliseconds.
+2021-05-13 22:13:41.622  INFO 26124 --- [restartedMain] com.ljh.BlogApplication                  : Starting BlogApplication on LAPTOP-H9JN2KTH with PID 26124 (F:\program\WebStormWorkspace\blog-mybatisplus\target\classes started by Lewis Cool in F:\program\WebStormWorkspace\blog-mybatisplus)
+2021-05-13 22:13:41.622  INFO 26124 --- [restartedMain] com.ljh.BlogApplication                  : No active profile set, falling back to default profiles: default
+2021-05-13 22:13:41.943  WARN 26124 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ljh.mapper]' package. Please check your configuration.
+2021-05-13 22:13:42.035  INFO 26124 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-13 22:13:42.037  INFO 26124 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-13 22:13:42.038  INFO 26124 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2021-05-13 22:13:42.039  INFO 26124 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2021-05-13 22:13:42.039  INFO 26124 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-05-13 22:13:42.039  INFO 26124 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-05-13 22:13:42.040  INFO 26124 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2021-05-13 22:13:42.176  INFO 26124 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-13 22:13:42.176  INFO 26124 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 551 ms
+2021-05-13 22:13:42.201 ERROR 26124 --- [restartedMain] o.a.catalina.session.StandardManager     : Exception loading sessions from persistent storage
+
+java.lang.ClassNotFoundException: com.ljh.entity.User
+	at org.springframework.boot.web.embedded.tomcat.TomcatEmbeddedWebappClassLoader.loadClass(TomcatEmbeddedWebappClassLoader.java:72)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1188)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:415)
+	at org.apache.catalina.util.CustomObjectInputStream.resolveClass(CustomObjectInputStream.java:159)
+	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1886)
+	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1772)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2060)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1594)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:430)
+	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1587)
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:1040)
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:218)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:162)
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:354)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5156)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:841)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:421)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:468)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:437)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:191)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:178)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.ljh.BlogApplication.main(BlogApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+
+2021-05-13 22:13:42.273  INFO 26124 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-13 22:13:42.296  INFO 26124 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-05-13 22:13:42.332  WARN 26124 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2021-05-13 22:13:42.333  INFO 26124 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-13 22:13:42.334  INFO 26124 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-05-13 22:13:42.342  INFO 26124 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-05-13 22:13:42.349 ERROR 26124 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2021-05-13 22:21:52.615  WARN 25732 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,176] milliseconds.
+2021-05-13 22:23:22.691  WARN 8052 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,375] milliseconds.
+2021-05-13 22:24:08.221  WARN 14404 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,131] milliseconds.
+2021-05-13 22:26:46.776  WARN 1168 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,151] milliseconds.
+2021-05-13 22:27:53.951  WARN 9612 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,171] milliseconds.
+2021-05-13 22:29:00.736  WARN 14852 --- [http-nio-4996-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,510] milliseconds.
