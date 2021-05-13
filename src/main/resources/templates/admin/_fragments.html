@@ -35,9 +35,11 @@
                         <span th:text="${session.user.nickname}">FrankieLiu</span>
                     </div>
                     <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    <div class="menu right aligned">
+                        <a href="#" th:href="@{/}" class="item">前往博客</a>
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销账户</a>
                     </div>
+
                 </div>
             </div>
         </div>
